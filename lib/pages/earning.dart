@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:investmentmobileapp/models/popular_model.dart';
 
 class EarningPage extends StatelessWidget {
- static const String id = 'earning';
+  static const String id = 'earning';
   EarningPage({super.key});
   List<PopularModel> popular = [];
 

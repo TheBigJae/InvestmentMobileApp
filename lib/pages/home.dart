@@ -4,11 +4,11 @@ import 'package:investmentmobileapp/models/popular_model.dart';
 import 'package:investmentmobileapp/pages/earning.dart';
 
 class HomePage extends StatelessWidget {
- static String id = '/';
-   HomePage({super.key});
-  List <PopularModel> popular = [];
+  static String id = '/';
+  HomePage({super.key});
+  List<PopularModel> popular = [];
 
-  void _getPopular(){
+  void _getPopular() {
     popular = PopularModel.getPopular();
   }
 
@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     _getPopular();
     return Scaffold(
-
       body: ListView(
         children: [
           Column(
@@ -25,29 +24,33 @@ class HomePage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                      child: Text(
-                        'Shop',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 24
-                        ),
-                      ),
+                    child: Text(
+                      'Shop',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
                     ),
-                  InkWell(
-                    onTap: ()=> Navigator.pushNamed(context, EarningPage.id),
-                    child: SvgPicture.asset('assets/icons/dropdown.svg',
-                    width: 20,
-                    height: 20,),
                   ),
-                  SizedBox(width: 200,),
+                  InkWell(
+                    onTap: () => Navigator.pushNamed(context, EarningPage.id),
+                    child: SvgPicture.asset(
+                      'assets/icons/dropdown.svg',
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 200,
+                  ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context)=> EarningPage()
-                      ));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EarningPage()));
                     },
-                    child: SvgPicture.asset('assets/icons/star2.svg',
-                    width: 40,
+                    child: SvgPicture.asset(
+                      'assets/icons/star2.svg',
+                      width: 40,
                       height: 40,
                     ),
                   )
@@ -58,37 +61,31 @@ class HomePage extends StatelessWidget {
           Column(
             children: [
               Container(
-                margin:const EdgeInsets.only(top:20,left: 20,right: 20) ,
-                decoration: BoxDecoration(
-                    boxShadow: [BoxShadow(
-                        color: const Color(0xff1D1617).withOpacity(0.11),
-                        blurRadius: 20,
-                        spreadRadius: 0.0
-                    )]
-                ),
-                child:TextField(
-
+                margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                      color: const Color(0xff1D1617).withOpacity(0.11),
+                      blurRadius: 20,
+                      spreadRadius: 0.0)
+                ]),
+                child: TextField(
                   decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
                       contentPadding: const EdgeInsets.all(15),
                       hintText: 'Apple',
-                      hintStyle:const TextStyle(
-                          color: Color(0xffDDDADA),
-                          fontSize: 14
-                      ) ,
+                      hintStyle: const TextStyle(
+                          color: Color(0xffDDDADA), fontSize: 14),
                       prefixIcon: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: SvgPicture.asset('assets/icons/search2.svg',
-                            width: 20,
-                            height: 20
-                        ),
+                            width: 20, height: 20),
                       ),
                       suffixIcon: Container(
                         width: 100,
                         child: IntrinsicHeight(
                           child: Row(
-                            mainAxisAlignment:MainAxisAlignment.end ,
+                            mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               const VerticalDivider(
                                 color: Colors.black,
@@ -98,11 +95,10 @@ class HomePage extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child:
-                                SvgPicture.asset('assets/icons/filter.svg',
+                                child: SvgPicture.asset(
+                                    'assets/icons/filter.svg',
                                     width: 20,
-                                    height: 20
-                                ),
+                                    height: 20),
                               ),
                             ],
                           ),
@@ -110,9 +106,7 @@ class HomePage extends StatelessWidget {
                       ),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none
-                      )
-                  ),
+                          borderSide: BorderSide.none)),
                 ),
               ),
               Padding(
@@ -120,29 +114,31 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SvgPicture.asset('assets/icons/apple.svg',
-                    width: 20,
-                    height: 20,),
-                    Text('Popular',
-                    style: TextStyle(
-                      color:Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600
+                    SvgPicture.asset(
+                      'assets/icons/apple.svg',
+                      width: 20,
+                      height: 20,
                     ),
-                    ),
-                    Text('Cheapest',
+                    Text(
+                      'Popular',
                       style: TextStyle(
-                          color:Colors.grey,
+                          color: Colors.black,
                           fontSize: 16,
-                          fontWeight: FontWeight.w400
-                      ),
+                          fontWeight: FontWeight.w600),
                     ),
-                    Text('Recommended',
+                    Text(
+                      'Cheapest',
                       style: TextStyle(
-                          color:Colors.grey,
+                          color: Colors.grey,
                           fontSize: 16,
-                          fontWeight: FontWeight.w400
-                      ),
+                          fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      'Recommended',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400),
                     ),
                     // Text('Hot This',
                     //   style: TextStyle(
@@ -162,18 +158,19 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25.0, top: 10.0),
                 child: Row(
                   children: [
-                    Text('PACKS',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w200
-                    ),),
-                    Padding(
-                      padding: const EdgeInsets.only(left:8.0),
-                      child: Text('124',
+                    Text(
+                      'PACKS',
                       style: TextStyle(
-                        color: Colors.deepPurpleAccent
-                      ),),
+                          color: Colors.grey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w200),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        '124',
+                        style: TextStyle(color: Colors.deepPurpleAccent),
+                      ),
                     )
                   ],
                 ),
@@ -182,102 +179,107 @@ class HomePage extends StatelessWidget {
           ),
           Column(
             children: [
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Container(
                 width: 350,
                 height: 170,
                 decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(15),
-                    boxShadow: [BoxShadow(
-                        color: const Color(0xff1D1617).withOpacity(0.11),
-                        blurRadius: 40,
-                        spreadRadius: 0.0
-                    )]
-                ),
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                          color: const Color(0xff1D1617).withOpacity(0.11),
+                          blurRadius: 40,
+                          spreadRadius: 0.0)
+                    ]),
                 child: Column(
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(25.0),
-                      child: Row(
-                      children:[
-                        Text('Most Popular',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600
-                      ),),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 130.0),
-                          child: SvgPicture.asset('assets/icons/star2.svg',
-                          width: 30,height: 30,
-                          ),
-                        ),
-                        
-                      ]),
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.only(left:20.0),
-                    child: Row(
-                      children:[
-                        Container(
-                            margin: const EdgeInsets.all(10),
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                image: const DecorationImage(
-                                    image: AssetImage('assets/images/portrait1.jpg'),
-                                    fit: BoxFit.cover)
-                            )
-                        ),
-                        Text('by Tommy Hayes',
+                      child: Row(children: [
+                        Text(
+                          'Most Popular',
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
-                          ),),
-                      ]
-                    ,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 130.0),
+                          child: SvgPicture.asset(
+                            'assets/icons/star2.svg',
+                            width: 30,
+                            height: 30,
+                          ),
+                        ),
+                      ]),
                     ),
-                  )],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Row(
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.all(10),
+                              height: 20,
+                              width: 20,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  image: const DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/portrait1.jpg'),
+                                      fit: BoxFit.cover))),
+                          Text(
+                            'by Tommy Hayes',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               )
             ],
           ),
-          SizedBox(height: 30,),
+          SizedBox(
+            height: 30,
+          ),
           Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Row(
                   children: [
-                    Text('LEADERS',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 18
-                    ),),
-                    SizedBox(width: 5,),
-                    Text('1',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        fontSize: 18
-                      ),),
-                    SizedBox(width: 220,),
-                    SvgPicture.asset('assets/icons/rightarrow.svg',
-                    width: 20,height: 20,
+                    Text(
+                      'LEADERS',
+                      style: TextStyle(color: Colors.grey, fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      '1',
+                      style: TextStyle(color: Colors.purple, fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: 220,
+                    ),
+                    SvgPicture.asset(
+                      'assets/icons/rightarrow.svg',
+                      width: 20,
+                      height: 20,
                     )
                   ],
                 ),
               )
             ],
           ),
-
         ],
       ),
-
-
     );
   }
 }
-
-
