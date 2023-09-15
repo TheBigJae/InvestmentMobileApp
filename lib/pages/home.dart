@@ -62,7 +62,8 @@ class HomePage extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-                decoration: BoxDecoration(boxShadow: [
+                decoration: BoxDecoration(
+                  boxShadow: [
                   BoxShadow(
                       color: const Color(0xff1D1617).withOpacity(0.11),
                       blurRadius: 20,
@@ -140,13 +141,7 @@ class HomePage extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.w400),
                     ),
-                    // Text('Hot This',
-                    //   style: TextStyle(
-                    //       color:Colors.grey,
-                    //       fontSize: 16,
-                    //       fontWeight: FontWeight.w400
-                    //   ),
-                    // )
+                  
                   ],
                 ),
               )
@@ -278,6 +273,85 @@ class HomePage extends StatelessWidget {
               )
             ],
           ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 240,
+                child: ListView.separated(
+                  itemBuilder: (context, index) 
+                  {
+                    return Container(
+                      width: 210,
+                      decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                           BoxShadow(
+                          color: const Color(0xff1D1617).withOpacity(0.11),
+                          blurRadius: 60,
+                          spreadRadius: 7.0)
+                            ]                 
+                          ),
+                      child: Column(children: [
+                        SvgPicture.asset(
+                          popular[index].iconPath,
+                          width: 70,
+                          height: 70,
+                        ),
+                        SizedBox(height: 70,),
+                        Text(
+                          popular[index].name,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                              fontSize: 20,
+                             ),
+                        ),
+                        Text('${popular[index].percent }  |  ${popular[index].price}',
+                        style: TextStyle(
+                          color: Colors.green,
+                          fontSize: 16,
+                          
+                        ),
+                        ),
+                        Container(
+                          height: 45,
+                          width: 190,
+                          child: Center(
+                            child: Text(
+                              'Get Pro Tips',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                              Color(0xff9DCEFF),Color(0xff92A3FD)
+                            ]),
+                            borderRadius: BorderRadius.circular(50)
+                          ),
+                        )
+                      ]),
+                      
+                    );
+                  },
+                  separatorBuilder: ((context, index) => SizedBox(
+                        width: 25,
+                      )),
+                  itemCount: popular.length,
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
