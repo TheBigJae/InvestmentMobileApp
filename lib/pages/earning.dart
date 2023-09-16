@@ -338,7 +338,7 @@ class EarningPage extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),    
         ],
       ),
     );

@@ -62,8 +62,7 @@ class HomePage extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
-                decoration: BoxDecoration(
-                  boxShadow: [
+                decoration: BoxDecoration(boxShadow: [
                   BoxShadow(
                       color: const Color(0xff1D1617).withOpacity(0.11),
                       blurRadius: 20,
@@ -141,7 +140,6 @@ class HomePage extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.w400),
                     ),
-                  
                   ],
                 ),
               )
@@ -186,7 +184,7 @@ class HomePage extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                           color: const Color(0xff1D1617).withOpacity(0.11),
-                          blurRadius: 40,
+                          blurRadius: 25,
                           spreadRadius: 0.0)
                     ]),
                 child: Column(
@@ -240,9 +238,7 @@ class HomePage extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
-            height: 30,
-          ),
+          SizedBox(height: 30),
           Column(
             children: [
               Padding(
@@ -253,16 +249,12 @@ class HomePage extends StatelessWidget {
                       'LEADERS',
                       style: TextStyle(color: Colors.grey, fontSize: 18),
                     ),
-                    SizedBox(
-                      width: 5,
-                    ),
+                    SizedBox(width: 5),
                     Text(
                       '1',
                       style: TextStyle(color: Colors.purple, fontSize: 18),
                     ),
-                    SizedBox(
-                      width: 220,
-                    ),
+                    SizedBox(width: 220),
                     SvgPicture.asset(
                       'assets/icons/rightarrow.svg',
                       width: 20,
@@ -276,78 +268,77 @@ class HomePage extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                height: 240,
-                child: ListView.separated(
-                  itemBuilder: (context, index) 
-                  {
-                    return Container(
-                      width: 210,
-                      decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                           BoxShadow(
-                          color: const Color(0xff1D1617).withOpacity(0.11),
-                          blurRadius: 60,
-                          spreadRadius: 7.0)
-                            ]                 
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 250,
+                  child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return Container(
+                        width: 210,
+                        decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.1),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                  color:
+                                      const Color(0xff1D1617).withOpacity(0.11),
+                                  blurRadius: 10,
+                                  spreadRadius: 0.0)
+                            ]),
+                        child: Column(children: [
+                          SvgPicture.asset(
+                            popular[index].iconPath,
+                            width: 70,
+                            height: 70,
                           ),
-                      child: Column(children: [
-                        SvgPicture.asset(
-                          popular[index].iconPath,
-                          width: 70,
-                          height: 70,
-                        ),
-                        SizedBox(height: 70,),
-                        Text(
-                          popular[index].name,
-                          style: TextStyle(
+                          SizedBox(
+                            height: 70,
+                          ),
+                          Text(
+                            popular[index].name,
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.black,
                               fontSize: 20,
-                             ),
-                        ),
-                        Text('${popular[index].percent }  |  ${popular[index].price}',
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 16,
-                          
-                        ),
-                        ),
-                        Container(
-                          height: 45,
-                          width: 190,
-                          child: Center(
-                            child: Text(
-                              'Get Pro Tips',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14
-                              ),
                             ),
                           ),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [
-                              Color(0xff9DCEFF),Color(0xff92A3FD)
-                            ]),
-                            borderRadius: BorderRadius.circular(50)
+                          Text(
+                            '${popular[index].percent}  |  ${popular[index].price}',
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 16,
+                            ),
                           ),
-                        )
-                      ]),
-                      
-                    );
-                  },
-                  separatorBuilder: ((context, index) => SizedBox(
-                        width: 25,
-                      )),
-                  itemCount: popular.length,
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(left: 20, right: 20),
+                          Container(
+                            height: 45,
+                            width: 190,
+                            child: Center(
+                              child: Text(
+                                'Get Pro Tips',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14),
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(colors: [
+                                  Color(0xff9DCEFF),
+                                  Color(0xff92A3FD)
+                                ]),
+                                borderRadius: BorderRadius.circular(50)),
+                          )
+                        ]),
+                      );
+                    },
+                    separatorBuilder: ((context, index) => SizedBox(
+                          width: 25,
+                        )),
+                    itemCount: popular.length,
+                    scrollDirection: Axis.horizontal,
+                  ),
                 ),
               )
             ],
