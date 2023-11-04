@@ -190,7 +190,7 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(25.0),
+                      padding: const EdgeInsets.only(left: 25.0, right:25, top: 25,bottom: 10),
                       child: Row(children: [
                         Text(
                           'Most Popular',
@@ -209,29 +209,46 @@ class HomePage extends StatelessWidget {
                         ),
                       ]),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0),
-                      child: Row(
-                        children: [
-                          Container(
-                              margin: const EdgeInsets.all(10),
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left:20.0),
+                              child: Container(
+                                margin: const EdgeInsets.all(10),
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
-                                  image: const DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/portrait1.jpg'),
-                                      fit: BoxFit.cover))),
-                          Text(
-                            'by Tommy Hayes',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/images/portrait1.jpg'),
+                                    fit: BoxFit.cover
+                                  )
+                                ),
+                              ),
                             ),
+                                  Text(
+                                    'by Tommy Hayes',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                          ],
+
+                        ),
+
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          child: Column(
+
                           ),
-                        ],
-                      ),
+                        )
+                      ],
                     )
                   ],
                 ),
